@@ -3,67 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Health Calculators</title>
+    <title>Nutrition Toolbox</title>
     <link rel="stylesheet" href="calculators.css">
 </head>
 <body>
     <header>
-        <h1>Nutrition Toolbox</h1>
-        <nav>
+        <div class="container">
+            <h1>Health Calculators</h1>
+           <nav>
             <ul>
                 <li><a href="index.html">Search</a></li>
                 <li><a href="calculators.html">Calculators</a></li>
             </ul>
-        </nav>
+            </nav>
+        </div>
     </header>
+
     <main>
-        <section id="bmi-calculator">
-            <h2>BMI Calculator</h2>
-            <form id="bmi-form">
-                <label for="weight">Weight (kg):</label>
-                <input type="number" id="weight" required>
-                <label for="height">Height (cm):</label>
-                <input type="number" id="height" step="0.01" required>
-                <button type="submit">Calculate BMI</button>
-            </form>
-            <div id="bmi-result"></div>
-        </section>
-       <section id="energy-calculator">
-    <h2>Total Daily Energy Requirement</h2>
-    <form id="energy-form">
-        <label for="weight-energy">Weight (kg):</label>
-        <input type="number" id="weight-energy" required>
-        
-        <label for="height-energy">Height (cm):</label>
-        <input type="number" id="height-energy" required>
-        
-        <label for="age">Age (years):</label>
-        <input type="number" id="age" required>
-        
-        <label for="gender">Gender:</label>
-        <select id="gender" required>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-        </select>
-        
-        <label for="pal">Physical Activity Level (PAL):</label>
-        <input type="number" id="pal" step="0.01" min="1.2" max="2.4" required>
-        
-        <button type="submit">Calculate TDEE</button>
-    </form>
-    <div id="energy-result"></div>
-    <div id="pal-guide">
-        <h3>PAL Value Guide:</h3>
-        <ul>
-            <li>1.2 - 1.3: Sedentary (little to no exercise)</li>
-            <li>1.4 - 1.5: Lightly active (light exercise 1-3 days/week)</li>
-            <li>1.6 - 1.7: Moderately active (moderate exercise 3-5 days/week)</li>
-            <li>1.8 - 1.9: Very active (hard exercise 6-7 days/week)</li>
-            <li>2.0 - 2.4: Extremely active (very hard exercise, physical job, training)</li>
-        </ul>
-    </div>
-</section>
+        <div class="container">
+            <section id="bmi">
+                <h2>BMI Calculator</h2>
+                <form id="bmi-form">
+                    <label for="weight">Weight (kg):</label>
+                    <input type="number" id="weight" required>
+                    <label for="height">Height (cm):</label>
+                    <input type="number" id="height" required>
+                    <button type="submit">Calculate BMI</button>
+                </form>
+                <div id="bmi-result"></div>
+            </section>
+
+            <section id="tdee">
+                <h2>Total Daily Energy Requirement</h2>
+                <form id="energy-form">
+                    <label for="weight-energy">Weight (kg):</label>
+                    <input type="number" id="weight-energy" required>
+                    <label for="height-energy">Height (cm):</label>
+                    <input type="number" id="height-energy" required>
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" required>
+                    <label for="gender">Gender:</label>
+                    <select id="gender" required>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                    <label for="pal">Physical Activity Level (PAL):</label>
+                    <input type="number" id="pal" step="0.1" min="1.2" max="2.4" required>
+                    <button type="submit">Calculate TDEE</button>
+                </form>
+                <div id="energy-result"></div>
+                <div id="pal-guide">
+                    <h3>PAL Value Guide:</h3>
+                    <ul>
+                        <li>1.2 - 1.3: Sedentary (little to no exercise)</li>
+                        <li>1.4 - 1.5: Lightly active (light exercise 1-3 days/week)</li>
+                        <li>1.6 - 1.7: Moderately active (moderate exercise 3-5 days/week)</li>
+                        <li>1.8 - 1.9: Very active (hard exercise 6-7 days/week)</li>
+                        <li>2.0 - 2.4: Extremely active (very hard exercise, physical job, training)</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="body-fat">
+                <h2>Body Fat Percentage Calculator</h2>
+                <form id="body-fat-form">
+                    <label for="bf-gender">Gender:</label>
+                    <select id="bf-gender" required>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                    <label for="bf-waist">Waist (cm):</label>
+                    <input type="number" id="bf-waist" required>
+                    <label for="bf-neck">Neck (cm):</label>
+                    <input type="number" id="bf-neck" required>
+                    <label for="bf-height">Height (cm):</label>
+                    <input type="number" id="bf-height" required>
+                    <label for="bf-hip">Hip (cm, females only):</label>
+                    <input type="number" id="bf-hip">
+                    <button type="submit">Calculate Body Fat Percentage</button>
+                </form>
+                <div id="body-fat-result"></div>
+            </section>
+
+            <section id="protein">
+                <h2>Protein Intake Calculator</h2>
+                <form id="protein-form">
+                    <label for="protein-weight">Weight (kg):</label>
+                    <input type="number" id="protein-weight" required>
+                    <label for="protein-activity">Activity Level:</label>
+                    <select id="protein-activity" required>
+                        <option value="sedentary">Sedentary</option>
+                        <option value="moderate">Moderately Active</option>
+                        <option value="active">Very Active</option>
+                    </select>
+                    <label for="protein-goal">Goal:</label>
+                    <select id="protein-goal" required>
+                        <option value="maintain">Maintain Weight</option>
+                        <option value="lose">Lose Weight</option>
+                        <option value="gain">Gain Muscle</option>
+                    </select>
+                    <button type="submit">Calculate Protein Intake</button>
+                </form>
+                <div id="protein-result"></div>
+            </section>
+
+            <section id="anthropometric">
+                <h2>Anthropometric Measurements Calculator</h2>
+                <form id="anthropometric-form">
+                    <label for="anthro-waist">Waist (cm):</label>
+                    <input type="number" id="anthro-waist" required>
+                    <label for="anthro-hip">Hip (cm):</label>
+                    <input type="number" id="anthro-hip" required>
+                    <label for="anthro-height">Height (cm):</label>
+                    <input type="number" id="anthro-height" required>
+                    <label for="anthro-weight">Weight (kg):</label>
+                    <input type="number" id="anthro-weight" required>
+                    <button type="submit">Calculate Measurements</button>
+                </form>
+                <div id="anthropometric-result"></div>
+            </section>
+
+            <section id="rmr">
+                <h2>Resting Metabolic Rate (RMR) Calculator</h2>
+                <form id="rmr-form">
+                    <label for="rmr-weight">Weight (kg):</label>
+                    <input type="number" id="rmr-weight" required>
+                    <label for="rmr-height">Height (cm):</label>
+                    <input type="number" id="rmr-height" required>
+                    <label for="rmr-age">Age:</label>
+                    <input type="number" id="rmr-age" required>
+                    <label for="rmr-gender">Gender:</label>
+                    <select id="rmr-gender" required>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                    <label for="rmr-formula">Formula:</label>
+                    <select id="rmr-formula" required>
+                        <option value="harris-benedict">Harris-Benedict</option>
+                        <option value="mifflin-st-jeor">Mifflin-St Jeor</option>
+                        <option value="katch-mcardle">Katch-McArdle</option>
+                    </select>
+                    <button type="submit">Calculate RMR</button>
+                </form>
+                <div id="rmr-result"></div>
+            </section>
+
+            <section id="hydration">
+                <h2>Hydration Calculator</h2>
+                <form id="hydration-form">
+                    <label for="hydration-weight">Weight (kg):</label>
+                    <input type="number" id="hydration-weight" required>
+                    <label for="hydration-activity">Activity Level:</label>
+                    <select id="hydration-activity" required>
+                        <option value="sedentary">Sedentary</option>
+                        <option value="moderate">Moderately Active</option>
+                        <option value="active">Very Active</option>
+                    </select>
+                    <label for="hydration-climate">Climate:</label>
+                    <select id="hydration-climate" required>
+                        <option value="temperate">Temperate</option>
+                        <option value="hot">Hot</option>
+                        <option value="humid">Humid</option>
+                    </select>
+                    <button type="submit">Calculate Hydration Needs</button>
+                </form>
+                <div id="hydration-result"></div>
+            </section>
+
+            <section id="nutrient-ratio">
+                <h2>Nutrient Ratio Calculator</h2>
+                <form id="nutrient-ratio-form">
+                    <label for="carbs-ratio">Carbohydrates (%):</label>
+                    <input type="number" id="carbs-ratio" min="0" max="100" required>
+                    <label for="protein-ratio">Protein (%):</label>
+                    <input type="number" id="protein-ratio" min="0" max="100" required>
+                    <label for="fat-ratio">Fat (%):</label>
+                    <input type="number" id="fat-ratio" min="0" max="100" required>
+                    <label for="total-calories">Total Calories:</label>
+                    <input type="number" id="total-calories" required>
+                    <button type="submit">Calculate Nutrient Ratio</button>
+                </form>
+                <div id="nutrient-ratio-result"></div>
+            </section>
+        </div>
     </main>
+
     <script src="calculators.js"></script>
 </body>
 </html>
