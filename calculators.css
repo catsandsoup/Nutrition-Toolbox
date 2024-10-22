@@ -40,6 +40,7 @@ header .container {
 nav ul {
     list-style-type: none;
     display: flex;
+    flex-wrap: wrap;
 }
 
 nav ul li {
@@ -62,7 +63,10 @@ main {
 
 h1, h2, h3 {
     margin-bottom: 1rem;
-    padding: 0 var(--content-padding);
+}
+
+section {
+    margin-bottom: 2rem;
 }
 
 form {
@@ -70,7 +74,7 @@ form {
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     padding: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 label {
@@ -101,7 +105,7 @@ button:hover {
     background-color: var(--secondary-color);
 }
 
-#bmi-result, #energy-result {
+[id$="-result"] {
     background-color: var(--card-background);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
